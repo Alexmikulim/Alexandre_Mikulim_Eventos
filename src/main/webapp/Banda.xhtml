@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/recursos/template/template.xhtml">
+		<ui:define name="tituloPrincipal">Cadastro de Banda</ui:define>
+		<ui:define name="tituloSecundario">Digite os dados abaixo</ui:define>
+		<ui:define name="botoesAcao">
+			<p:commandButton value="Cadastrar" action="#{bandaBean.cadastrarBanda()}" update="@form"/>
+			<p:button value="Listar" href="ListarBandas.jsf"/>
+		</ui:define>
+		<ui:define name="conteudo">
+		
+			<p:panelGrid columns="3">
+			
+			<p:outputLabel for="n1" value="Nome da Banda:"/>
+			<p:inputText id="n1" value="#{bandaBean.banda.nome}"/>
+			<p:message for="n1"/>
+			
+			<p:outputLabel for="n2" value="Site Oficial:"/>
+			<p:inputText id="n2" value="#{bandaBean.banda.site}"/>
+			<p:message for="n2"/>
+			
+			<p:outputLabel for="n3" value="Data de Fundação:"/>
+			<p:calendar locale="pt" pattern="dd/MM/yyyy" id="n3" value="#{bandaBean.banda.dataFundacao}" />
+			<p:message for="n3"/>
+			
+			<p:outputLabel for="n4" value="Nacionalidade:"/>
+			<p:inputText id="n4" value="#{bandaBean.banda.nacionalidade}"/>
+			<p:message for="n4"/>
+			
+			<p:outputLabel for="n5" value="Telefone Contato:"/>
+			<p:inputMask mask="(99)9999-9999" id="n5" value="#{bandaBean.banda.telefone}"/>
+			<p:message for="n5"/>
+			
+			<p:outputLabel for="n6" value="Tipo de Musica:"/>
+			<p:inputText id="n6" value="#{bandaBean.banda.tipoMusica}"/>
+			<p:message for="n6"/>
+			
+			</p:panelGrid>
+		
+		</ui:define>
+	
+	</ui:composition>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:composition template="/recursos/template/template.xhtml">
+		<ui:define name="tituloPrincipal">Lista de Locais</ui:define>
+		<ui:define name="tituloSecundario">Dados abaixo</ui:define>
+		<ui:define name="botoesAcao">
+
+			<p:button value="Voltar para Cadastro" href="Local.jsf"/>
+		</ui:define>
+		<ui:define name="conteudo">
+			<p:dataTable value="#{localBean.listarLocais()}" var="local">
+				
+				<p:column headerText="Nome do Local">
+				<p:outputLabel value="#{local.nome}" />
+				</p:column>
+				
+				<p:column headerText="Cidade">
+				<p:outputLabel value="#{local.cidade}" />
+				</p:column>
+				
+				<p:column headerText="Lotação">
+				<p:outputLabel value="#{local.lotacao}" />
+				</p:column>
+				
+				<p:column headerText="Telefone">
+				<p:outputLabel value="#{local.telefone}" />
+				</p:column>
+
+				
+			</p:dataTable>
+			
+		
+		</ui:define>
+	
+	</ui:composition>
+</html>
